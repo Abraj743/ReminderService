@@ -7,7 +7,6 @@ const setupJobs = () =>{
     cron.schedule('*/2 * * * *', async () => {
         const response = await emailService.fetchPendingEmails();
         response.forEach((email) =>{
-        //    emailService.sendBasicEmail("ReminderService@airline.com",email.recepientEmail,email.subject,email.content)
            sender.sendMail({
             to:email.recepientEmail,
             subject:email.subject,
